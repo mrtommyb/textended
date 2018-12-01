@@ -155,8 +155,12 @@ if __name__ == '__main__':
 
 
     selected = newDF[newDF.has_transits == True]
-    selected.to_csv('../data/allCTL7-EM-v1.csv.bz2',
+    selected.to_csv('../data/allCTL7-EM-v2.csv.bz2',
                   compression='bz2')
+
+    newDF.to_csv('/home/tom/Dropbox/filetransfer/allCTL7-EM-v2-everything.csv.bz2',
+                  compression='bz2')
+    
     
     out_SNE = get_camera(selected.reset_index(drop=True), strategy='SNE')
     out_SNSNS = get_camera(selected.reset_index(drop=True), strategy='SNSNS')
@@ -186,9 +190,9 @@ if __name__ == '__main__':
               pd.DataFrame(out_SNNSN[4], columns=[str(x) for x in range(53, 66)]), 
               ], axis=1)
 
-    df_out_SNE.to_csv('../data/obs_SNE.csv.bz2',
+    df_out_SNE.to_csv('../data/obs_SNE-v2.csv.bz2',
                   compression='bz2')
-    df_out_SNSNS.to_csv('../data/obs_SNSNS.csv.bz2',
+    df_out_SNSNS.to_csv('../data/obs_SNSNS-v2.csv.bz2',
                   compression='bz2')
-    df_out_SNNSN.to_csv('../data/obs_SNNSN.csv.bz2',
+    df_out_SNNSN.to_csv('../data/obs_SNNSN-v2.csv.bz2',
                   compression='bz2')
