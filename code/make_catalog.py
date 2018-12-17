@@ -21,6 +21,7 @@ from tessmaps.get_time_on_silicon import given_cameras_get_stars_on_silicon as g
 consts = {'sigma_threshold': 10, 
           'detect_transits': 3,
           'sector_length': 13.7,
+          'version': 'v4',
          }
 
 def get_camera(df, strategy='SNSNS'):
@@ -270,7 +271,7 @@ if __name__ == '__main__':
     newDF = calculate_planet_properties(df)
 
     selected = newDF[newDF.has_transits == True]
-    selected.to_csv('../data/allCTL7-EM-v3.csv.bz2',
+    selected.to_csv('../data/allCTL7-EM-{}-{}T.csv.bz2'.format(consts['version'], consts['detect_transits']),
                   compression='bz2')
     
     out_SNE = get_camera_bouma(selected.reset_index(drop=True), fieldfile='../data/camera_boresights_SNE.csv')
@@ -290,7 +291,7 @@ if __name__ == '__main__':
     dfw_SNE = make_output_arr(dfw_SNE, nsectors)
     print('Planets detected in primary + extended mission SNE: {}'.format(dfw_SNE[dfw_SNE.detected].shape[0]))
     print('Planets detected in primary mission SNE: {}'.format(dfw_SNE[dfw_SNE.detected_primary].shape[0]))
-    dfw_SNE.to_csv('../data/obs_SNE-v3.csv.bz2',
+    dfw_SNE.to_csv('../data/obs_SNE-{}-{}T.csv.bz2'.format(consts['version'], consts['detect_transits']),
                   compression='bz2')
 
     dfw_SNSNS = pd.concat([selected.reset_index(drop=True), df_out_SNSNS], axis=1)
@@ -298,7 +299,7 @@ if __name__ == '__main__':
     dfw_SNSNS = make_output_arr(dfw_SNSNS, nsectors)
     print('Planets detected in primary + extended mission SNSNS: {}'.format(dfw_SNSNS[dfw_SNSNS.detected].shape[0]))
     print('Planets detected in primary mission SNSNS: {}'.format(dfw_SNSNS[dfw_SNSNS.detected_primary].shape[0]))
-    dfw_SNSNS.to_csv('../data/obs_SNSNS-v3.csv.bz2',
+    dfw_SNSNS.to_csv('../data/obs_SNSNS-{}-{}T.csv.bz2'.format(consts['version'], consts['detect_transits']),
                   compression='bz2')
 
     dfw_SNNSN = pd.concat([selected.reset_index(drop=True), df_out_SNNSN], axis=1)
@@ -306,7 +307,7 @@ if __name__ == '__main__':
     dfw_SNNSN = make_output_arr(dfw_SNNSN, nsectors)
     print('Planets detected in primary + extended mission SNNSN: {}'.format(dfw_SNNSN[dfw_SNNSN.detected].shape[0]))
     print('Planets detected in primary mission SNNSN: {}'.format(dfw_SNNSN[dfw_SNE.detected_primary].shape[0]))
-    dfw_SNNSN.to_csv('../data/obs_SNNSN-v3.csv.bz2',
+    dfw_SNNSN.to_csv('../data/obs_SNNSN-{}-{}T.csv.bz2'.format(consts['version'], consts['detect_transits']),
                   compression='bz2')
 
     dfw_EC3PO = pd.concat([selected.reset_index(drop=True), df_out_EC3PO], axis=1)
@@ -314,11 +315,11 @@ if __name__ == '__main__':
     dfw_EC3PO = make_output_arr(dfw_EC3PO, nsectors)
     print('Planets detected in primary + extended mission EC3PO: {}'.format(dfw_EC3PO[dfw_EC3PO.detected].shape[0]))
     print('Planets detected in primary mission EC3PO: {}'.format(dfw_EC3PO[dfw_EC3PO.detected_primary].shape[0]))
-    dfw_EC3PO.to_csv('../data/obs_EC3PO-v3.csv.bz2',
+    dfw_EC3PO.to_csv('../data/obs_EC3PO-{}-{}T.csv.bz2'.format(consts['version'], consts['detect_transits']),
                   compression='bz2')
 
 
 
     print('doing the final save of all the transits')
-    newDF.to_csv('/home/tom/Dropbox/filetransfer/allCTL7-EM-v3-everything.csv.bz2',
+    newDF.to_csv('/home/tom/Dropbox/filetransfer/allCTL7-EM-{}-everything.csv.bz2'.format(consts['version']),
               compression='bz2')
