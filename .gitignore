@@ -1,5 +1,6 @@
 .DS_Store
 exo_CTL_07.02xTIC_v7.csv
+data/OST_300
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
