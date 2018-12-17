@@ -412,13 +412,13 @@ def Dressing15_select_extrap(nselect=1):
     
 
     balls = np.r_[balls,
-                    p1,p2,p3,p4,p5,p6,p7,p9,p10,
-                    p11,p12,p13,p14,p15,p16,p17,p19,p20,
-                    p21,p22,p23,p24,p25,p26,p27,p29,p30,
-                    p31,p32,p33,p34,p35,p36,p37,p39,p40,
-                    p41,p42,p43,p44,p45,p46,p47,p49,p50,
-                    p51,p52,p53,p54,p55,p56,p57,p59,p60,
-                    p61,p62,p63,p64,p65,p66,p67,p69,p70,
+                    p1, p2, p3, p4, p5, p6, p7, p8, p9, p10,
+                    p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,
+                    p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,
+                    p31,p32,p33,p34,p35,p36,p37,p38,p39,p40,
+                    p41,p42,p43,p44,p45,p46,p47,p48,p49,p50,
+                    p51,p52,p53,p54,p55,p56,p57,p58,p59,p60,
+                    p61,p62,p63,p64,p65,p66,p67,p68,p69,p70,
                     p71, p72, p73, p74, p75, p76, p77
                     ]
 
@@ -515,6 +515,184 @@ def Dressing15_select_extrap(nselect=1):
 
     return radius, period
 
+
+def Petigura18_select(nselect=1):
+    # create a pot for pedigura numbers (balls)
+    balls = np.array([])
+
+    p1 = np.zeros(2) + 1
+    p2 = np.zeros(8) + 2
+    p3 = np.zeros(21) + 3
+    p4 = np.zeros(8) + 4
+    p5 = np.zeros(24) + 5
+    p6 = np.zeros(52) + 6
+    p7 = np.zeros(77) + 7
+    p8 = np.zeros(5) + 8
+    p9 = np.zeros(26) + 9
+    p10 = np.zeros(24) + 10
+    p11 = np.zeros(145) + 11
+    p12 = np.zeros(259) + 12
+    p13 = np.zeros(5) + 13
+    p14 = np.zeros(12) + 14
+    p15 = np.zeros(18) + 15
+    p16 = np.zeros(17) + 16
+    p17 = np.zeros(38) + 17
+    p18 = np.zeros(168) + 18
+    p19 = np.zeros(12) + 19
+    p20 = np.zeros(8) + 20
+    p21 = np.zeros(25) + 21
+    p22 = np.zeros(56) + 22
+    p23 = np.zeros(53) + 23
+    p24 = np.zeros(78) + 24
+    p25 = np.zeros(84) + 25
+    p26 = np.zeros(78) + 26
+    p27 = np.zeros(6) + 27
+    p28 = np.zeros(8) + 28
+    p29 = np.zeros(94) + 29
+    p30 = np.zeros(180) + 30
+    p31 = np.zeros(185) + 31
+    p32 = np.zeros(258) + 32
+    p33 = np.zeros(275) + 33
+    p34 = np.zeros(312) + 34
+    p35 = np.zeros(225) + 35
+    p36 = np.zeros(8) + 36
+    p37 = np.zeros(77) + 37
+    p38 = np.zeros(138) + 38
+    p39 = np.zeros(423) + 39
+    p40 = np.zeros(497) + 40
+    p41 = np.zeros(667) + 41
+    p42 = np.zeros(475) + 42
+    p43 = np.zeros(270) + 43
+    p44 = np.zeros(147) + 44
+    p45 = np.zeros(8) + 45
+    p46 = np.zeros(34) + 46
+    p47 = np.zeros(125) + 47
+    p48 = np.zeros(202) + 48
+    p49 = np.zeros(279) + 49
+    p50 = np.zeros(261) + 50
+    p51 = np.zeros(251) + 51
+    p52 = np.zeros(186) + 52
+    p53 = np.zeros(360) + 53
+    p54 = np.zeros(393) + 54
+    p55 = np.zeros(12) + 55
+    p56 = np.zeros(36) + 56
+    p57 = np.zeros(141) + 57
+    p58 = np.zeros(263) + 58
+    p59 = np.zeros(450) + 59
+    p60 = np.zeros(350) + 60
+    p61 = np.zeros(287) + 61
+    p62 = np.zeros(249) + 62
+    p63 = np.zeros(12) + 63
+    p64 = np.zeros(52) + 64
+    p65 = np.zeros(128) + 65
+    p66 = np.zeros(315) + 66
+    p67 = np.zeros(205) + 67
+    p68 = np.zeros(447) + 68
+    p69 = np.zeros(8) + 69
+    p70 = np.zeros(50) + 70
+
+    balls = np.r_[balls,
+                    p1, p2, p3, p4, p5, p6, p7, p8, p9,p10,
+                    p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,
+                    p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,
+                    p31,p32,p33,p34,p35,p36,p37,p38,p39,p40,
+                    p41,p42,p43,p44,p45,p46,p47,p48,p49,p50,
+                    p51,p52,p53,p54,p55,p56,p57,p58,p59,p60,
+                    p61,p62,p63,p64,p65,p66,p67,p68,p69,p70
+                    ]
+
+    ball_lookup = {
+                    0:  [0.0,   0.0,      0.0,    0.0],
+                    1:  [11.31, 16.00,   1.00,   1.78],
+                    2:  [11.31, 16.00,   1.78,   3.16],
+                    3:  [11.31, 16.00,   3.16,   5.62],
+                    4:  [11.31, 16.00,   5.62,  10.00],
+                    5:  [11.31, 16.00,  31.62,  56.23],
+                    6:  [11.31, 16.00, 100.00, 177.83],
+                    7:  [11.31, 16.00, 177.83, 316.23],
+                    8:  [ 8.00, 11.31,   3.16,   5.62],
+                    9:  [ 8.00, 11.31,  17.78,  31.62],
+                    10: [ 8.00, 11.31,  31.62,  56.23],
+                    11: [ 8.00, 11.31, 100.00, 177.83],
+                    12: [ 8.00, 11.31, 177.83, 316.23],
+                    13: [ 5.66,  8.00,   3.16,   5.62],
+                    14: [ 5.66,  8.00,   5.62,  10.00],
+                    15: [ 5.66,  8.00,  10.00,  17.78],
+                    16: [ 5.66,  8.00,  17.78,  31.62],
+                    17: [ 5.66,  8.00,  31.62,  56.23],
+                    18: [ 5.66,  8.00, 177.83, 316.23],
+                    19: [ 4.00,  5.66,   3.16,   5.62],
+                    20: [ 4.00,  5.66,   5.62,  10.00],
+                    21: [ 4.00,  5.66,  10.00,  17.78],
+                    22: [ 4.00,  5.66,  17.78,  31.62],
+                    23: [ 4.00,  5.66,  31.62,  56.23],
+                    24: [ 4.00,  5.66,  56.23, 100.00],
+                    25: [ 4.00,  5.66, 100.00, 177.83],
+                    26: [ 4.00,  5.66, 177.83, 316.23],
+                    27: [ 2.83,  4.00,   1.78,   3.16],
+                    28: [ 2.83,  4.00,   3.16,   5.62],
+                    29: [ 2.83,  4.00,   5.62,  10.00],
+                    30: [ 2.83,  4.00,  10.00,  17.78],
+                    31: [ 2.83,  4.00,  17.78,  31.62],
+                    32: [ 2.83,  4.00,  31.62,  56.23],
+                    33: [ 2.83,  4.00,  56.23, 100.00],
+                    34: [ 2.83,  4.00, 100.00, 177.83],
+                    35: [ 2.83,  4.00, 177.83, 316.23],
+                    36: [ 2.00,  2.83,   1.78,   3.16],
+                    37: [ 2.00,  2.83,   3.16,   5.62],
+                    38: [ 2.00,  2.83,   5.62,  10.00],
+                    39: [ 2.00,  2.83,  10.00,  17.78],
+                    40: [ 2.00,  2.83,  17.78,  31.62],
+                    41: [ 2.00,  2.83,  31.62,  56.23],
+                    42: [ 2.00,  2.83,  56.23, 100.00],
+                    43: [ 2.00,  2.83, 100.00, 177.83],
+                    44: [ 2.00,  2.83, 177.83, 316.23],
+                    45: [ 1.41,  2.00,   1.00,   1.78],
+                    46: [ 1.41,  2.00,   1.78,   3.16],
+                    47: [ 1.41,  2.00,   3.16,   5.62],
+                    48: [ 1.41,  2.00,   5.62,  10.00],
+                    49: [ 1.41,  2.00,  10.00,  17.78],
+                    50: [ 1.41,  2.00,  17.78,  31.62],
+                    51: [ 1.41,  2.00,  31.62,  56.23],
+                    52: [ 1.41,  2.00,  56.23, 100.00],
+                    53: [ 1.41,  2.00, 100.00, 177.83],
+                    54: [ 1.41,  2.00, 177.83, 316.23],
+                    55: [ 1.00,  1.41,   1.00,   1.78],
+                    56: [ 1.00,  1.41,   1.78,   3.16],
+                    57: [ 1.00,  1.41,   3.16,   5.62],
+                    58: [ 1.00,  1.41,   5.62,  10.00],
+                    59: [ 1.00,  1.41,  10.00,  17.78],
+                    60: [ 1.00,  1.41,  17.78,  31.62],
+                    61: [ 1.00,  1.41,  31.62,  56.23],
+                    62: [ 1.00,  1.41,  56.23, 100.00],
+                    63: [ 0.71,  1.00,   1.00,   1.78],
+                    64: [ 0.71,  1.00,   1.78,   3.16],
+                    65: [ 0.71,  1.00,   3.16,   5.62],
+                    66: [ 0.71,  1.00,   5.62,  10.00],
+                    67: [ 0.71,  1.00,  10.00,  17.78],
+                    68: [ 0.71,  1.00,  17.78,  31.62],
+                    69: [ 0.50,  0.71,   1.00,   1.78],
+                    70: [ 0.50,  0.71,   1.78,   3.16]
+                }
+
+    rsamps = random.choice(balls,size=nselect)
+    radius = np.zeros(nselect)
+    period = np.zeros(nselect)
+    for i,samp in enumerate(rsamps):
+        rl, rh, pl, ph = ball_lookup[samp]
+
+        if samp in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
+        #check for giant planets
+        # if a giant planet than draw power law
+            radius[i] = rndm(8, 16, -1.7)
+        else:
+            radius[i] = random.uniform(low=rl,high=rh)
+
+        period[i] = random.uniform(low=pl,high=ph)
+
+    return radius, period
+
+
 def per2ars(per, mstar, rstar):
     per_SI = per * 86400.
     mass_SI = mstar * msun
@@ -554,8 +732,8 @@ def make_allplanets_df_vec_extrap(df,starid_zp):
     df.loc[:, 'planetPeriod'] = pd.Series()
     df.loc[:, 'starID'] = pd.Series()
 
-    radper_dressing = Dressing15_select_extrap(totalRows)
-    radper_fressin = Fressin13_select_extrap(totalRows)
+    radper_m = Dressing15_select_extrap(totalRows)
+    radper_fgk = Petigura18_select(totalRows)
 
     #we need an array of indices
     rowIdx = np.repeat(np.arange(df.shape[0]),np.array(df.Nplanets.values))
@@ -564,8 +742,8 @@ def make_allplanets_df_vec_extrap(df,starid_zp):
     newdf.loc[:, 'starID'] = rowIdx + starid_zp
 
 
-    newdf.loc[:,'planetRadius'] = np.where(newdf.isMdwarf,radper_dressing[0],radper_fressin[0])
-    newdf.loc[:,'planetPeriod'] = np.where(newdf.isMdwarf,radper_dressing[1],radper_fressin[1])
+    newdf.loc[:,'planetRadius'] = np.where(newdf.isMdwarf,radper_m[0],radper_fgk[0])
+    newdf.loc[:,'planetPeriod'] = np.where(newdf.isMdwarf,radper_m[1],radper_fgk[1])
     newdf.set_index(np.arange(newdf.shape[0]), inplace=True)
 
     return newdf, newdf.starID.iloc[-1]
