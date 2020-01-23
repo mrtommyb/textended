@@ -16,18 +16,18 @@ consts = {
     "sigma_threshold": 7.1,
     "detect_transits": 3,
     "sector_length": 91.3125,
-    "version": "v1",
+    "version": "v2",
     # "fgk_rate": 2.5,#0.69,#2.5,
     "m_rate": 2.96,
-    "ocrMeasurement": "LUVOIR",
+    "ocrMeasurement": "burke",
 }
 
 if consts['ocrMeasurement'] == 'bryson':
     consts['fgk_rate'] = 0.69
-elif consts['ocrMeasurement'] == 'bryson':
+elif consts['ocrMeasurement'] == 'burke':
     consts['fgk_rate'] = 2.5
 elif consts['ocrMeasurement'] == 'LUVOIR':
-    consts['fgk_rate'] = 0.5
+    consts['fgk_rate'] = 0.05
 
 
 def get_quarters(strategy="k1k2"):
@@ -282,7 +282,7 @@ if __name__ == "__main__":
     q4 = np.array([])
     q5 = np.array([])
     q6 = np.array([])
-    for i in trange(1):
+    for i in trange(500):
         newDF = calculate_planet_properties(df)
 
         selected = newDF[newDF.has_transits == True]
@@ -323,3 +323,9 @@ if __name__ == "__main__":
         #     q6,
         #     dfw_kepler[(dfw_kepler.detected) & (dfw_kepler.inSAG13)].shape[0],
         # ]
+
+        dfw_kepler.to_csv(
+        "../data/bryson/{}/obs_kepler-{}-{}T-{}-n{}.csv".format(consts["ocrMeasurement"],
+        consts["version"], consts["detect_transits"], consts["ocrMeasurement"],
+        i)
+        )

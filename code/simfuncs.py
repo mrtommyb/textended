@@ -1111,7 +1111,7 @@ def kepler_noise_1h_quiet(kepmag):
     return mag_interp(kepmag) * np.sqrt(6.)
 
 
-def make_allplanets_df_vec_extrap_kepler(df, starid_zp, ocrMeasurement='bryson'):
+def make_allplanets_df_vec_extrap_kepler(df, starid_zp, ocrMeasurement):
     totalRows = df.loc[:, "Nplanets"].sum()
 
     df.loc[:, "planetRadius"] = pd.Series()
@@ -1119,7 +1119,7 @@ def make_allplanets_df_vec_extrap_kepler(df, starid_zp, ocrMeasurement='bryson')
     df.loc[:, "starID"] = pd.Series()
 
     radper_m = Dressing15_select_extrap(totalRows)
-    radper_fgk = Bryson_select(totalRows)
+    radper_fgk = Bryson_select(totalRows, ocrMeasurement=ocrMeasurement)
 
     # we need an array of indices
     rowIdx = np.repeat(np.arange(df.shape[0]), np.array(df.Nplanets.values))
@@ -1166,7 +1166,7 @@ def Bryson_select(nselect=1, ocrMeasurement='bryson'):
     ball_lookup = {}
     dPeriod = period1D[1] - period1D[0]
     dRadius = rp1D[1] - rp1D[0]
-    for i in range(200):
+    for i in range(100):
         for j in range(100):
             ball_lookup[i * 100 + j] = [
                 rp1D[j] - dRadius / 2,
