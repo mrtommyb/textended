@@ -16,31 +16,31 @@ consts = {
     "sigma_threshold": 7.1,
     "detect_transits": 3,
     "sector_length": 91.3125,
-    "version": "v2",
+    "version": "v3",
     # "fgk_rate": 2.5,#0.69,#2.5,
     "m_rate": 2.96,
     "ocrMeasurement": "burke",
 }
 
 if consts['ocrMeasurement'] == 'bryson':
-    consts['fgk_rate'] = 0.69
+    consts['fgk_rate'] = 0.76
 elif consts['ocrMeasurement'] == 'burke':
-    consts['fgk_rate'] = 2.5
+    consts['fgk_rate'] = 2.77
 elif consts['ocrMeasurement'] == 'LUVOIR':
     consts['fgk_rate'] = 0.05
 
 
 def get_quarters(strategy="k1k2"):
-    # arrary runs from Q1 2009 - Q4 2030
-    quartersObserved = np.zeros(4 * 31)
+    # arrary runs from Q1 2009 - Q4 2031
+    quartersObserved = np.zeros(4 * 22)
 
     if (strategy == "k1") or (strategy == "k1k2"):
         # assume that Kepler lasted 16 quarters
         quartersObserved[1 : 1 + 1 + 16] = 1
 
     if (strategy == "k2") or (strategy == "k1k2"):
-        # assume that Kepler lasted 16 quarters
-        quartersObserved[-20:] = 1
+        # a 6 year Kepler 2 mission
+        quartersObserved[-24:] = 1
 
     return quartersObserved
 
@@ -107,18 +107,18 @@ def calculate_planet_properties(df):
     return newDF
 
 
-def get_ntransits(row, sectorlength=91.3125, nsectors=124):
+def get_ntransits(row, sectorlength=91.3125, nsectors=88):
     totalMissionDuration = sectorlength * nsectors
     transitTimes = np.arange(
         row.loc["T0"], totalMissionDuration, row.loc["planetPeriod"]
     )
     bins = sectorlength * np.arange(0, 1 + nsectors)
     inds = np.digitize(transitTimes, bins=bins, right=True)
-    inds = inds[inds < nsectors + 1]  # assuming we go 4 years and 5 months
+    inds = inds[inds < nsectors + 1]  
     return np.count_nonzero(inds * row.loc[[str(x) for x in inds]])
 
 
-def get_ntransits_primary(row, sectorlength=91.3125, nsectors=124):
+def get_ntransits_primary(row, sectorlength=91.3125, nsectors=88):
     totalMissionDuration = sectorlength * nsectors
     transitTimes = np.arange(
         row.loc["T0"], totalMissionDuration, row.loc["planetPeriod"]
@@ -282,7 +282,7 @@ if __name__ == "__main__":
     q4 = np.array([])
     q5 = np.array([])
     q6 = np.array([])
-    for i in trange(500):
+    for i in trange(250):
         newDF = calculate_planet_properties(df)
 
         selected = newDF[newDF.has_transits == True]

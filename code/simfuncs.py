@@ -1142,9 +1142,9 @@ def Bryson_select(nselect=1, ocrMeasurement='bryson'):
     balls = np.array([])
 
     if ocrMeasurement == 'bryson':
-        fn_occ = "../data/bryson/occurrenceGrid_860_bryson.npy"
+        fn_occ = "../data/bryson/occurrenceGrid_1100_bryson.npy"
     elif ocrMeasurement == 'burke':
-        fn_occ = "../data/bryson/occurrenceGrid_860_burke.npy"
+        fn_occ = "../data/bryson/occurrenceGrid_1100_burke.npy"
     elif ocrMeasurement == 'LUVOIR':
         # simulate the LUVOIR eta-earth planets
         radius = np.zeros(nselect)
@@ -1152,8 +1152,8 @@ def Bryson_select(nselect=1, ocrMeasurement='bryson'):
         radius = random.uniform(low=0.8, high=1.4, size=nselect)
         period = random.uniform(low=338, high=778, size=nselect)
         return radius, period
-    fn_p = "../data/bryson/occurrencePeriod_860.npy"
-    fn_r = "../data/bryson/occurrenceRadius_860.npy"
+    fn_p = "../data/bryson/occurrencePeriod_1100.npy"
+    fn_r = "../data/bryson/occurrenceRadius_1100.npy"
     ocrGrid = np.load(fn_occ)
     rp1D = np.load(fn_r)
     period1D = np.load(fn_p)
