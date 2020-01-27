@@ -282,7 +282,7 @@ if __name__ == "__main__":
     q4 = np.array([])
     q5 = np.array([])
     q6 = np.array([])
-    for i in trange(250):
+    for i in trange(500):
         newDF = calculate_planet_properties(df)
 
         selected = newDF[newDF.has_transits == True]

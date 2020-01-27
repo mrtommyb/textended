@@ -1159,16 +1159,16 @@ def Bryson_select(nselect=1, ocrMeasurement='bryson'):
     period1D = np.load(fn_p)
 
     # use a 100 x 100 grid
-    occBalls = np.round(ocrGrid.flatten() * 1.0e6)
+    occBalls = np.round(ocrGrid.flatten() * 1.0e7)
     for i in range(occBalls.shape[0]):
         balls = np.r_[balls, np.zeros(int(occBalls[i])) + i]
 
     ball_lookup = {}
     dPeriod = period1D[1] - period1D[0]
     dRadius = rp1D[1] - rp1D[0]
-    for i in range(100):
-        for j in range(100):
-            ball_lookup[i * 100 + j] = [
+    for i in range(300):
+        for j in range(300):
+            ball_lookup[i * 300 + j] = [
                 rp1D[j] - dRadius / 2,
                 rp1D[j] + dRadius / 2,
                 period1D[i] - dPeriod / 2,
